@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 
 public class MyWidgetConfigure extends Activity{
@@ -25,6 +24,8 @@ public class MyWidgetConfigure extends Activity{
 		// set layout
 		this.setContentView(R.layout.configuration);
 		
+		// set result to canceled
+		// in case the user cancels the process
 		this.setResult(Activity.RESULT_CANCELED);
 		
 		Intent intent = getIntent();
@@ -34,6 +35,7 @@ public class MyWidgetConfigure extends Activity{
                     AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
         }
 		
+        // check if the id is invalid
 		if (mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish();
         }
@@ -44,8 +46,14 @@ public class MyWidgetConfigure extends Activity{
 		
 	}
 	
-	
+	/*
+	 * Returns the save button
+	 */
 	public Button getButtonSave(){ return this.buttonSave;}
+	
+	/*
+	 * Returns the widget id
+	 */
 	public int getAppWidgetId(){return this.mAppWidgetId;}
 
 }

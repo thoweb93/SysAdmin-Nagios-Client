@@ -22,6 +22,9 @@ public class EventListener implements OnClickListener  {
 		this.setEvents();
 	}
 	
+	/*
+	 * Constructor	 
+	 */
 	private void setEvents()
 	{
 		// Button Save
