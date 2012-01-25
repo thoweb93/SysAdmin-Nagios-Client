@@ -15,6 +15,8 @@ public class MyWidgetProvider extends AppWidgetProvider {
 	 public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 	        final int N = appWidgetIds.length;
 
+	        Log.w("WidgetExample", "Widget - onUpdate");
+	        
 	        // Perform this loop procedure for each App Widget that belongs to this provider
 	        for (int i=0; i<N; i++) {
 	            int appWidgetId = appWidgetIds[i];
