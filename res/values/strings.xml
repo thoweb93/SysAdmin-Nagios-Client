@@ -3,5 +3,6 @@
 
     <string name="hello">Hello World, SysAdminActivity!</string>
     <string name="app_name">SysAdmin</string>
+    <string name="button_Ok_Text">Ok</string>
 
 </resources>
