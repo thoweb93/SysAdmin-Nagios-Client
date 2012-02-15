@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.Button;
 
 public class WidgetConfigure_Server extends Activity {
@@ -49,6 +51,12 @@ public class WidgetConfigure_Server extends Activity {
 		
 		this.eventListener = new EventListener_Widget(this);
 		
+	}
+	
+	public boolean onCreateOptionsMenu(Menu _menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, _menu);
+		return true;
 	}
 	
 	/**
