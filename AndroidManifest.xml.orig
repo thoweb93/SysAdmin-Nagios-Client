@@ -15,19 +15,24 @@
 	        
 	        <meta-data 
 	            android:name="android.appwidget.provider"
-	            android:resource="@xml/widget_info" />
-	        
+	            android:resource="@xml/widget_info" />	        
 	    </receiver>
+<<<<<<< HEAD
+	    
+	    <activity android:name=".Activity.WidgetConfigure_Server"
+	        android:theme="@android:style/Theme.Holo.Light" >
+=======
 	    <activity android:name=".Activity.WidgetConfigure_Server" 
 	        android:uiOptions="splitActionBarWhenNarrow"
-	        android:theme="@android:style/Theme.Holo">
+	        android:theme="@android:style/Theme.Holo.Light">
+>>>>>>> thoweb/master
     		<intent-filter>
         		<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
     		</intent-filter>
 		</activity>	   
 		
 		<activity android:name=".Activity.WidgetConfigure_Conclusion"
-		    android:theme="@android:style/Theme.Holo" />		   
+		    android:theme="@android:style/Theme.Holo.Light" />		   
 		
 	    
 	    

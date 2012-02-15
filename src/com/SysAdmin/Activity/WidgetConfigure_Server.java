@@ -5,13 +5,16 @@ import com.SysAdmin.EventListener.EventListener_Widget;
 import com.SysAdmin.R.id;
 import com.SysAdmin.R.layout;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class WidgetConfigure_Server extends Activity {
 	
@@ -30,6 +33,9 @@ public class WidgetConfigure_Server extends Activity {
 		
 		// set layout
 		this.setContentView(R.layout.configuration);
+		
+		ActionBar actionBar = getActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 		
 		// set result to canceled
 		// in case the user cancels the process
@@ -58,6 +64,7 @@ public class WidgetConfigure_Server extends Activity {
 		inflater.inflate(R.menu.mainmenu, _menu);
 		return true;
 	}
+		
 	
 	/**
 	 * Returns the save button
