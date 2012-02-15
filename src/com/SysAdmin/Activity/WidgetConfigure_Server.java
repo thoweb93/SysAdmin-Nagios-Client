@@ -1,4 +1,4 @@
-package Activity;
+package com.SysAdmin.Activity;
 
 import com.SysAdmin.R;
 import com.SysAdmin.EventListener.EventListener_Widget;

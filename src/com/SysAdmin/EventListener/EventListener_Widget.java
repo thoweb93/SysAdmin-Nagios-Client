@@ -2,7 +2,6 @@ package com.SysAdmin.EventListener;
 
 import java.util.Random;
 
-import Activity.WidgetConfigure_Server;
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -13,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.RemoteViews;
 
 import com.SysAdmin.R;
+import com.SysAdmin.Activity.WidgetConfigure_Server;
 
 public class EventListener_Widget implements OnClickListener {
 
