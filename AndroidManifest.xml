@@ -19,18 +19,13 @@
 	        
 	    </receiver>
 	    <activity android:name=".Activity.WidgetConfigure_Server" 
-	        android:uiOptions="splitActionBarWhenNarrow"
-	        android:theme="@android:style/Theme.Holo.Light">
+	        android:uiOptions="splitActionBarWhenNarrow">
     		<intent-filter>
         		<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
     		</intent-filter>
 		</activity>	   
 		
 		<activity android:name=".Activity.WidgetConfigure_Conclusion"
-		    android:theme="@android:style/Theme.Holo.Light" />		   
-		
-	    
-	    
+		    android:theme="@android:style/Theme.Holo.Light" />	    
     </application>
-
 </manifest>

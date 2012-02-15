@@ -47,7 +47,7 @@ public class WidgetConfigure_Server extends Activity {
             finish();
         }
 		
-		this.buttonSave = (Button) this.findViewById(R.id.button1);
+		this.buttonSave = (Button) this.findViewById(R.id.ButtonCheck);
 		
 		this.eventListener = new EventListener_Widget(this);
 		
