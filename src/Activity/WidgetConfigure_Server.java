@@ -1,6 +1,9 @@
-package com.SysAdmin;
+package Activity;
 
+import com.SysAdmin.R;
 import com.SysAdmin.EventListener.EventListener_Widget;
+import com.SysAdmin.R.id;
+import com.SysAdmin.R.layout;
 
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
@@ -8,13 +11,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class SysAdminWidgetConfigure extends Activity {
+public class WidgetConfigure_Server extends Activity {
 	
 	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	private Button buttonSave = null;
 	private EventListener_Widget eventListener = null;
 	
-	public SysAdminWidgetConfigure()
+	public WidgetConfigure_Server()
 	{
 		super();
 	}
