@@ -10,6 +10,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+/**
+ * Last configuration activity.
+ * Concludes the settings entered by the user.
+ * 
+ * @author Lukas Bernreiter
+ * @version 0.1, 19/02/2012S
+ * @since 0.1
+ */
 public class WidgetConfigure_Conclusion extends Activity {
 	
 	public WidgetConfigure_Conclusion()

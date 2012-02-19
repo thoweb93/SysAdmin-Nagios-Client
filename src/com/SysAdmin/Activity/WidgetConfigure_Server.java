@@ -1,9 +1,7 @@
 package com.SysAdmin.Activity;
 
 import com.SysAdmin.R;
-import com.SysAdmin.EventListener.EventListener_Widget;
-import com.SysAdmin.R.id;
-import com.SysAdmin.R.layout;
+import com.SysAdmin.EventListener.EventListener_Configure;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -12,15 +10,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class WidgetConfigure_Server extends Activity {
 	
+	// Objects
 	private int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	private Button buttonSave = null;
-	private EventListener_Widget eventListener = null;
+	private EventListener_Configure eventListener = null;
 	
 	public WidgetConfigure_Server()
 	{
@@ -55,7 +52,7 @@ public class WidgetConfigure_Server extends Activity {
 		
 		this.buttonSave = (Button) this.findViewById(R.id.button1);
 		
-		this.eventListener = new EventListener_Widget(this);
+		this.eventListener = new EventListener_Configure(this);
 		
 	}
 	
