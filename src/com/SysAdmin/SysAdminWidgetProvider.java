@@ -14,7 +14,7 @@ import android.widget.RemoteViews;
  * Broadcast receiver, receives intent regarding the widget.
  * 
  * @author Lukas Bernreiter
- * @version 0.1, 19/02/2012
+ * @version 0.2, 19/02/2012
  * @since 0.1
  */
 public class SysAdminWidgetProvider extends AppWidgetProvider {
@@ -31,7 +31,7 @@ public class SysAdminWidgetProvider extends AppWidgetProvider {
 	            int number = (new Random().nextInt(100));
 	            
 	            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-				Log.w("WidgetExample", String.valueOf(number));
+				Log.w(AppFacade.GetTag(), String.valueOf(number));
 	            
 				remoteViews.setTextViewText(R.id.textView_update, String.valueOf(number));
 				

@@ -3,19 +3,17 @@
     <item android:id="@+id/menuItemSave" 
         android:showAsAction="ifRoom" 
         android:title="Save" 
-        android:menuCategory="system"></item>
+        android:menuCategory="system" />
     <item android:id="@+id/menuItemLoad" 
         android:showAsAction="ifRoom" 
         android:title="Load" 
-        android:menuCategory="system"
-        ></item>
+        android:menuCategory="system" />
     <item android:id="@+id/menuItemAbort" 
         android:showAsAction="ifRoom" 
-        android:title="X" 
-        android:menuCategory="system"></item>
-    <item android:id="@+id/menuItemOK" 
+        android:title="Cancel" 
+        android:menuCategory="system" />
+    <item android:id="@+id/menuItemFinish" 
         android:showAsAction="ifRoom" 
-        android:title="Y" 
-        android:menuCategory="system"></item>
-    
+        android:title="Finish" 
+        android:menuCategory="system" />
 </menu>

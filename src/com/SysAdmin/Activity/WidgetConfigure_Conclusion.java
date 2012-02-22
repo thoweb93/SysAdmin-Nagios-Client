@@ -25,6 +25,7 @@ public class WidgetConfigure_Conclusion extends Activity {
 		super();
 	}
 	
+	/** Called when the activity is first created. */
 	public void onCreate(Bundle _icicle)
 	{
 		super.onCreate(_icicle);
@@ -41,23 +42,31 @@ public class WidgetConfigure_Conclusion extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu _menu){
 		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.mainmenu, _menu);
+		inflater.inflate(R.menu.final_menu, _menu);
 		return true;
 	}
 	
 	/** Called whenever a menu item gets clicked */
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
 	    switch (item.getItemId()) {
 	        case android.R.id.home:
 	            // app icon in action bar clicked; go home
 	            Intent intent = new Intent(this, WidgetConfigure_Server.class);
 	            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	            startActivity(intent);
-	            return true;
+	            
+	            break;
+	        case R.id.menuItemSave:
+	        	
+	            
+	        	break;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
+	    
+	    return true;
 	}
 	
 }

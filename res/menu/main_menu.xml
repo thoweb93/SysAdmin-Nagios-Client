@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >   
+    <item android:id="@+id/menuItemLoad" 
+        android:showAsAction="ifRoom" 
+        android:title="Load" 
+        android:menuCategory="system" />
+    <item android:id="@+id/menuItemAbort" 
+        android:showAsAction="ifRoom" 
+        android:title="Cancel" 
+        android:menuCategory="system" />
+    <item android:id="@+id/menuItemNext" 
+        android:showAsAction="ifRoom" 
+        android:title="Next" 
+        android:menuCategory="system" />
+</menu>
