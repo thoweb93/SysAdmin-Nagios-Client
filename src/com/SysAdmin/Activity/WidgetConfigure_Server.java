@@ -30,10 +30,7 @@ public class WidgetConfigure_Server extends Activity {
 		
 		// set layout
 		this.setContentView(R.layout.configuration);
-		
-		ActionBar actionBar = getActionBar();
-	    actionBar.setDisplayHomeAsUpEnabled(true);
-		
+			
 		// set result to canceled
 		// in case the user cancels the process
 		this.setResult(Activity.RESULT_CANCELED);
