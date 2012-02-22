@@ -4,5 +4,9 @@
     <string name="hello">Hello World, SysAdminActivity!</string>
     <string name="app_name">SysAdmin</string>
     <string name="button_Ok_Text">Ok</string>
+   
+    <!-- WidgetConfigure_Server -->
+    <string name="button_check_Text">Check</string>
+    <string name="textView_Url_Text">URL:</string>
 
 </resources>

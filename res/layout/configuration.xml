@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <TextView
-        android:id="@+id/textView1"
+    android:orientation="vertical" 
+    android:gravity="center_horizontal|center_vertical"
+    android:layout_gravity="center_horizontal|center_vertical"> 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_Ok_Text" />
-
-</LinearLayout>
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ButtonCheck"
+        android:orientation="vertical" >
+    
+        <LinearLayout
+        	android:id="@+id/linearLayout1"
+        	android:layout_width="240dp"
+        	android:layout_height="wrap_content">
+    
+        	<TextView
+        		android:id="@+id/TextViewURL"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="@string/textView_Url_Text"
+        		android:textAppearance="?android:attr/textAppearanceLarge" />
+        	    
+    		<EditText
+        		android:id="@+id/EditTextUrl"
+        		android:layout_width="match_parent"
+       			android:layout_height="wrap_content">
+        		<requestFocus />
+    		</EditText>
+    	</LinearLayout>
+        
+        <Button
+        	android:id="@+id/ButtonCheck"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/button_check_Text" />
+    </LinearLayout>
+</RelativeLayout>
