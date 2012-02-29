@@ -21,7 +21,8 @@ public class AppFacade
 	private static final String XML_START_FILTER  = "Filter";
 	private static final String SD 				  = Environment.getExternalStorageState();
 	private static final String FILENAME = "Widgets.xml";
-	private static final String XML_FILE = SD + "/SysAdmin/" + FILENAME;			
+	private static final String XML_FILE = SD + "/SysAdmin/" + FILENAME;
+	private static Integer ConfigureRequestCode = 0;
 	
 	/** 
 	 * Returns the tag used by the application for logging 
@@ -85,5 +86,11 @@ public class AppFacade
 	 * @return the filename.
 	 */
 	public static String GetXMLFile(){return XML_FILE; }
+	
+	/**
+	 * Retrieves the request code.
+	 * @return the request code.
+	 */
+	public static Integer GetConfigureRequestCode(){return ConfigureRequestCode;}
 	
 }

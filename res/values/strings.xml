@@ -3,10 +3,11 @@
 
     <string name="hello">Hello World, SysAdminActivity!</string>
     <string name="app_name">SysAdmin</string>
-    <string name="button_Ok_Text">Ok</string>
+    <string name="button_Ok_Text">OK</string>
    
     <!-- WidgetConfigure_Server -->
     <string name="button_check_Text">Check</string>
-    <string name="textView_Url_Text">URL:</string>
-
+    <string name="textView_URL_Text">URL:</string>
+	<string name="editText_URL_Hint">RSS Feed</string>
+    
 </resources>

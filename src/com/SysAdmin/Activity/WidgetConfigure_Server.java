@@ -1,18 +1,25 @@
 package com.SysAdmin.Activity;
 
+import java.util.Random;
+
 import com.SysAdmin.AppFacade;
 import com.SysAdmin.R;
 import com.SysAdmin.EventListener.EventListener_Configuration_Server;
 
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RemoteViews;
+import android.widget.TextView;
 
 /**
  * @author Lukas Bernreiter
@@ -91,7 +98,7 @@ public class WidgetConfigure_Server extends Activity {
 	        	Intent intent = new Intent(this, WidgetConfigure_Conclusion.class);
 //				Intent intent = new Intent(this.configure, WidgetConfigure_Filter.class);
 				
-				this.startActivity(intent);
+				this.startActivityForResult(intent, AppFacade.GetConfigureRequestCode());
 	            break;
 	            
 	        default:
@@ -101,6 +108,27 @@ public class WidgetConfigure_Server extends Activity {
 	    return true;
 	}
 	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		Log.d(AppFacade.GetTag(), "Result received");
+		if (resultCode == RESULT_OK)
+			this.createWidget();
+    }
+	
+	private void createWidget()
+	{
+		Context context = this.getApplicationContext();			
+		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+		
+		RemoteViews rViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
+		rViews.setTextViewText(R.id.textView_update, String.valueOf(new Random().nextInt(100)));
+		appWidgetManager.updateAppWidget(AppFacade.GetAppWidgetId(), rViews);				
+		
+		Intent resultValue = new Intent();			
+		resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppFacade.GetAppWidgetId());			
+		this.setResult(Activity.RESULT_OK, resultValue);			
+		this.finish();
+	}
+	
 	/**
 	 * Returns the check button
 	 * @return the button used for checking the URL
@@ -108,4 +136,26 @@ public class WidgetConfigure_Server extends Activity {
 	 */
 	public Button getButtonCheck(){ return (Button)this.findViewById(R.id.ButtonCheck);}
 
+	/**
+	 * Retrieves the content of the URL EditText.
+	 * @return the content as string.
+	 * @see java.lang.String
+	 */
+	public String getURL(){return ((EditText) this.findViewById(R.id.EditTextUrl)).getText().toString();}
+	
+	public void setDisplayResult(Boolean _result){this.setTextViewResult(_result); }
+	
+	private void setTextViewResult(Boolean _result)
+	{
+		if(_result)
+		{
+			((TextView)this.findViewById(R.id.textView_Result)).setText("OK");
+			((TextView)this.findViewById(R.id.textView_Result)).setTextColor(Color.GREEN);
+		}
+		else
+		{
+			((TextView)this.findViewById(R.id.textView_Result)).setText("Failure");
+			((TextView)this.findViewById(R.id.textView_Result)).setTextColor(Color.RED);
+		}
+	}
 }

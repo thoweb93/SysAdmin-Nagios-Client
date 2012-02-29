@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:gravity="center_horizontal|center_vertical"
-    android:layout_gravity="center_horizontal|center_vertical"> 
-    <LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/ButtonCheck"
-        android:orientation="vertical" >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical|center_horizontal" >
     
         <LinearLayout
         	android:id="@+id/linearLayout1"
@@ -22,12 +15,14 @@
         		android:id="@+id/TextViewURL"
         		android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
-        		android:text="@string/textView_Url_Text"
+        		android:text="@string/textView_URL_Text"
         		android:textAppearance="?android:attr/textAppearanceLarge" />
         	    
     		<EditText
         		android:id="@+id/EditTextUrl"
         		android:layout_width="match_parent"
+        		android:hint="@string/editText_URL_Hint"
+        		android:inputType="textUri"
        			android:layout_height="wrap_content">
         		<requestFocus />
     		</EditText>
@@ -35,8 +30,12 @@
         
         <Button
         	android:id="@+id/ButtonCheck"
-        	android:layout_width="match_parent"
+        	android:layout_width="wrap_content"
         	android:layout_height="wrap_content"
         	android:text="@string/button_check_Text" />
-    </LinearLayout>
-</RelativeLayout>
+        
+        <TextView android:id="@+id/textView_Result"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" />
+        
+</LinearLayout>

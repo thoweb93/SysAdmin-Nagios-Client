@@ -1,9 +1,18 @@
 package com.SysAdmin.EventListener;
 
+// java
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 // android
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 // com.SysAdmin
+import com.SysAdmin.AppFacade;
 import com.SysAdmin.Activity.WidgetConfigure_Server;
 
 /**
@@ -40,9 +49,33 @@ public class EventListener_Configuration_Server implements OnClickListener {
 		
 		if(_v == this.configure.getButtonCheck())
 		{
-			// Check
+			InputStream inputStream = null;
+			
+			// Check if the connection is OK
+			try {
+				URL url = new URL(this.configure.getURL());
+				HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				inputStream = new BufferedInputStream(connection.getInputStream(), 1024 * 5);
+				
+				
+			} catch (Exception _e) {
+				Log.e(AppFacade.GetTag(), _e.getMessage());
+				this.configure.setDisplayResult(false);
+			}
+			finally{
+				try {
+					if(null != inputStream)
+					{
+						inputStream.close();
+						this.configure.setDisplayResult(true);
+					}				
+				} catch (IOException _e) {
+					Log.e(AppFacade.GetTag(), _e.getMessage());
+				}
+				
+			}
+			
 		}
 		
-	}
-	
+	}	
 }

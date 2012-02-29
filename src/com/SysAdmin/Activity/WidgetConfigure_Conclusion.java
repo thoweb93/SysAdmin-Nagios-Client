@@ -1,5 +1,6 @@
 package com.SysAdmin.Activity;
 
+
 import com.SysAdmin.R;
 
 import android.app.ActionBar;
@@ -62,11 +63,17 @@ public class WidgetConfigure_Conclusion extends Activity {
 	        	
 	            
 	        	break;
+	        case R.id.menuItemFinish:
+	        	this.setResult(RESULT_OK);
+	        	this.finish();
+	        	break;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
 	    
 	    return true;
 	}
+	
+	
 	
 }
