@@ -41,8 +41,11 @@ class UpdateRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory
 	}
 
 	public RemoteViews getViewAt(int _position) {
-		// TODO: getViewAt()
-		return null;
+
+		RemoteViews rViews = new RemoteViews(this.mContext.getPackageName(), R.layout.list_item);
+		rViews.setTextViewText(R.id.textView_Service, String.valueOf(_position));			
+		
+		return rViews;
 	}
 
 	public int getViewTypeCount() {
@@ -58,6 +61,9 @@ class UpdateRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory
 	}
 
 	public void onDataSetChanged() {
+		if(null != this.mCursor)
+			this.mCursor.close();
+		
 		// DOWNLOAD AND PARSE HERE
 	}
 
