@@ -1,11 +1,10 @@
 package com.SysAdmin.Activity;
 
-import java.util.Random;
-
+// com.SysAdmin
 import com.SysAdmin.AppFacade;
 import com.SysAdmin.R;
 import com.SysAdmin.EventListener.EventListener_Configuration_Server;
-
+// android
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -18,7 +17,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RemoteViews;
 import android.widget.TextView;
 
 /**
@@ -30,7 +28,8 @@ import android.widget.TextView;
 public class WidgetConfigure_Server extends Activity {
 	
 	// Objects
-	private EventListener_Configuration_Server eventListener = null;
+	private EventListener_Configuration_Server mEventListener_Configuration_Server = null;
+	private Integer mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	
 	// Constructor
 	public WidgetConfigure_Server()
@@ -53,28 +52,28 @@ public class WidgetConfigure_Server extends Activity {
 		this.getWidgetId();
 		
 		this.initializeObjects();
+		
 	}
 	
 	/** Initializes every object of the main configuration activity */
 	private void initializeObjects()
 	{
 		// set events
-		this.eventListener = new EventListener_Configuration_Server(this);
-		this.eventListener.setEvents();
+		this.mEventListener_Configuration_Server = new EventListener_Configuration_Server(this);
+		this.mEventListener_Configuration_Server.setEvents();
 	}
 	
 	/** Retrieves the application's widget id */
 	private void getWidgetId()
-	{
-		Integer appWidgetId = AppFacade.GetAppWidgetId();
+	{		
 		Bundle extras = this.getIntent().getExtras();
         if (null != extras)
-        	appWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
+        	this.mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
             								AppWidgetManager.INVALID_APPWIDGET_ID);
 		
         // set the new id
 		try{
-			AppFacade.SetAppWidgetId(appWidgetId);
+			AppFacade.SetAppWidgetId(this.mAppWidgetId);
 		}catch(Exception _e)
 		{
 			Log.e(AppFacade.GetTag(), _e.getMessage());
@@ -119,9 +118,7 @@ public class WidgetConfigure_Server extends Activity {
 		Context context = this.getApplicationContext();			
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 		
-		RemoteViews rViews = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-		rViews.setTextViewText(R.id.textView_update, String.valueOf(new Random().nextInt(100)));
-		appWidgetManager.updateAppWidget(AppFacade.GetAppWidgetId(), rViews);				
+		appWidgetManager.notifyAppWidgetViewDataChanged(this.mAppWidgetId, R.id.listView_Status_List);
 		
 		Intent resultValue = new Intent();			
 		resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppFacade.GetAppWidgetId());			

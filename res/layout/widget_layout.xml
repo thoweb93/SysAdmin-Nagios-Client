@@ -5,33 +5,50 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent" 
 	style="@android:style/TextAppearance.Holo.Widget" >
-	<LinearLayout 
+	
+	<RelativeLayout 
 	    android:id="@+id/layout_widget_title"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_margin="8dip"
+	    android:layout_height="wrap_content"	    
 	    android:gravity="top"
 	    android:background="#c9c9c9" >
 	
-	    <TextView
-	        android:id="@+id/textView_update"
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:layout_gravity="center"
-	        android:gravity="center_horizontal|center_vertical"	        
-	        android:text="@string/app_name" >
-	    </TextView>
+	    <TextView style="@android:style/Widget.Holo.TextView.SpinnerItem"
+	        android:layout_margin="8dip"
+	        android:id="@+id/textView_Name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_vertical"
+	        android:text="@string/app_name" />
+
+	    <ImageButton style="@android:style/Widget.Holo.Button.Borderless"
+	        android:id="@+id/imageButton_Refresh"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:src="@drawable/ic_action_refresh"	        
+	        android:contentDescription="@string/imageButton_Widget_Refresh_ContentDescription" />
+	    	
+	</RelativeLayout>
 	
-	</LinearLayout>
-	<TextView
-	    android:id="@+id/textView_test"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_gravity="center"
-	    android:gravity="center_horizontal|center_vertical"
-	    android:layout_below="@+id/layout_widget_title"
-		android:text="@string/app_name" >
-	</TextView>
-	
+	<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_widget_title"
+        >
+        <ListView
+            android:id="@+id/listView_Status_List"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="#ffffff"
+            android:text="@string/textView_Empty_Text"
+            android:textSize="20sp" />
+    </FrameLayout>
 	
 </RelativeLayout>
