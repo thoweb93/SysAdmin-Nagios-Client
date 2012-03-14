@@ -29,7 +29,10 @@ class UpdateRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory
 	}
 	
 	public int getCount() {
-		return mCursor.getCount();
+		if(mCursor != null)
+			return mCursor.getCount();
+		else
+			return 0;
 	}
 
 	public long getItemId(int _position) {
@@ -64,7 +67,7 @@ class UpdateRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory
 		if(null != this.mCursor)
 			this.mCursor.close();
 		
-		// DOWNLOAD AND PARSE HERE
+		// Download, parse and fill cursor
 	}
 
 	public void onDestroy() {
