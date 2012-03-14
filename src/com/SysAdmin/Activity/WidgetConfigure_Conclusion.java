@@ -27,7 +27,7 @@ public class WidgetConfigure_Conclusion extends Activity {
 	}
 	
 	/** Called when the activity is first created. */
-	public void onCreate(Bundle _icicle)
+	protected void onCreate(Bundle _icicle)
 	{
 		super.onCreate(_icicle);
 		

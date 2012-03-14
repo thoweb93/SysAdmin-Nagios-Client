@@ -1,7 +1,11 @@
 package com.SysAdmin.Activity;
 
-// com.SysAdmin
+import java.io.FileOutputStream;
+
+import org.apache.http.util.ByteArrayBuffer;
+
 import com.SysAdmin.AppFacade;
+import com.SysAdmin.FilePathFacade;
 import com.SysAdmin.R;
 import com.SysAdmin.EventListener.EventListener_Configuration_Server;
 // android
@@ -68,6 +72,7 @@ public class WidgetConfigure_Server extends Activity {
 	{		
 		Bundle extras = this.getIntent().getExtras();
         if (null != extras)
+    
         	this.mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
             								AppWidgetManager.INVALID_APPWIDGET_ID);
 		
@@ -89,22 +94,42 @@ public class WidgetConfigure_Server extends Activity {
 	
 	/** Called whenever a menu item gets clicked */
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item)
+	public boolean onOptionsItemSelected(MenuItem _item)
 	{
-	    switch (item.getItemId()) {
+	    switch (_item.getItemId()) {
 	    	// start the next activity
 	        case R.id.menuItemNext:
+	        	this.writeFile();
 	        	Intent intent = new Intent(this, WidgetConfigure_Conclusion.class);
 //				Intent intent = new Intent(this.configure, WidgetConfigure_Filter.class);
 				
 				this.startActivityForResult(intent, AppFacade.GetConfigureRequestCode());
 	            break;
 	            
+	        case R.id.menuItemLoad:
+	        	Intent loadIntent = new Intent(this, LoadWidgetActivity.class);
+	        	this.startActivity(loadIntent);
+	        	
+	        	break;
+	            
 	        default:
-	            return super.onOptionsItemSelected(item);	            
+	            return super.onOptionsItemSelected(_item);	            
 	    }
 	    
 	    return true;
+	}
+	
+	/** Stores the file temporally */
+	private void writeFile()
+	{
+		ByteArrayBuffer baf = this.mEventListener_Configuration_Server.getByteArrayBuffer();
+		FileOutputStream output = null;
+		
+		try {
+			output = new FileOutputStream(FilePathFacade.GetTempFile());
+			output.write(baf.toByteArray());
+			output.close();
+		} catch (Exception _e) {Log.e(AppFacade.GetTag(), _e.getMessage());}
 	}
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

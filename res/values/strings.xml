@@ -8,7 +8,7 @@
     <!-- WidgetConfigure_Server -->
     <string name="button_check_Text">Check</string>
     <string name="textView_URL_Text">URL:</string>
-	<string name="editText_URL_Hint">RSS Feed</string>
+	<string name="editText_URL_Hint">Nagios Status</string>
     <string name="button_widget_Refresh">R</string>
 	
     <!-- Widget -->

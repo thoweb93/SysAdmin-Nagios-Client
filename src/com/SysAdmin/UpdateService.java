@@ -8,6 +8,11 @@ import android.database.Cursor;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+/**
+ * 
+ * @author bernreiter
+ *
+ */
 public class UpdateService extends RemoteViewsService 
 {
 	@Override

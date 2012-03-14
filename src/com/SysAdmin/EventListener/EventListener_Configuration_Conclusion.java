@@ -21,7 +21,7 @@ public class EventListener_Configuration_Conclusion
 	
 	public void setEvents()
 	{
-		// Events
+		// EventsDownload, parse and fill cursor
 	}
 	
 	/*
